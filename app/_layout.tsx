@@ -1,37 +1,65 @@
-import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
+import { Stack } from "expo-router";
 import { useFonts } from 'expo-font';
-import { Stack } from 'expo-router';
-import * as SplashScreen from 'expo-splash-screen';
 import { useEffect } from 'react';
-import 'react-native-reanimated';
-
-import { useColorScheme } from '@/hooks/useColorScheme';
-
-// Prevent the splash screen from auto-hiding before asset loading is complete.
-SplashScreen.preventAutoHideAsync();
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import loginPage from './pages/loginPage';
+import Entrar from './pages/Entrar';
+import HomeScreen from './pages/HomeScreen';
 
 export default function RootLayout() {
-  const colorScheme = useColorScheme();
   const [loaded] = useFonts({
     SpaceMono: require('../assets/fonts/SpaceMono-Regular.ttf'),
   });
 
   useEffect(() => {
     if (loaded) {
-      SplashScreen.hideAsync();
+      // SplashScreen.hideAsync();
     }
   }, [loaded]);
-
   if (!loaded) {
     return null;
   }
 
+  const Stack = createNativeStackNavigator();
+
   return (
-    <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-      <Stack>
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        <Stack.Screen name="+not-found" />
-      </Stack>
-    </ThemeProvider>
+    <NavigationContainer independent={true}>
+    <Stack.Navigator initialRouteName="loginPage">
+      <Stack.Screen 
+          name="Login" 
+          component={loginPage}
+          options={{
+            headerShown: false,
+            statusBarColor: "#f5f5f5",
+            statusBarStyle: "dark",
+          }}
+          />
+      <Stack.Screen 
+          name="Entrar" 
+          component={Entrar}
+          options={{
+            title: 'Entrar',
+            headerTitleStyle: {
+            fontSize: 35,
+            fontWeight: 'condensedBold',
+            },
+            headerTintColor: '#c990f9',
+            headerTitleAlign: 'center',
+            statusBarColor: "#f5f5f5",
+            statusBarStyle: "dark",
+          }}
+          />
+        <Stack.Screen 
+          name="HomeScreen" 
+          component={HomeScreen}
+          options={{
+            headerShown: false,
+            statusBarColor: "#f5f5f5",
+            statusBarStyle: "dark",
+          }}
+        />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
