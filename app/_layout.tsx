@@ -1,11 +1,12 @@
 import { Stack } from "expo-router";
 import { useFonts } from 'expo-font';
 import { useEffect } from 'react';
-import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import loginPage from './pages/loginPage';
 import Entrar from './pages/Entrar';
 import HomeScreen from './pages/HomeScreen';
+import LessonsScreen from "./pages/LessonsScreen";
+import { NavigationContainer, NavigationIndependentTree } from '@react-navigation/native';
 
 export default function RootLayout() {
   const [loaded] = useFonts({
@@ -23,15 +24,17 @@ export default function RootLayout() {
 
   const Stack = createNativeStackNavigator();
 
-  return (
-    <NavigationContainer independent={true}>
-    <Stack.Navigator initialRouteName="loginPage">
+  function NestedNavigator() {
+    return (
+      <NavigationIndependentTree>
+        <NavigationContainer>
+        <Stack.Navigator initialRouteName="loginPage">
       <Stack.Screen 
           name="Login" 
           component={loginPage}
           options={{
             headerShown: false,
-            statusBarColor: "#f5f5f5",
+            statusBarBackgroundColor: "#f5f5f5",
             statusBarStyle: "dark",
           }}
           />
@@ -46,7 +49,16 @@ export default function RootLayout() {
             },
             headerTintColor: '#c990f9',
             headerTitleAlign: 'center',
-            statusBarColor: "#f5f5f5",
+            statusBarBackgroundColor: "#f5f5f5",
+            statusBarStyle: "dark",
+          }}
+          />
+        <Stack.Screen 
+          name="LessonsScreen" 
+          component={LessonsScreen}
+          options={{
+            headerShown: false,
+            statusBarBackgroundColor: "#f5f5f5",
             statusBarStyle: "dark",
           }}
           />
@@ -55,11 +67,13 @@ export default function RootLayout() {
           component={HomeScreen}
           options={{
             headerShown: false,
-            statusBarColor: "#f5f5f5",
+            statusBarBackgroundColor: "#f5f5f5",
             statusBarStyle: "dark",
           }}
         />
       </Stack.Navigator>
     </NavigationContainer>
-  );
+    </NavigationIndependentTree>
+   );
+}
 }

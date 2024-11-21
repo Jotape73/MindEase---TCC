@@ -1,8 +1,15 @@
 import React from 'react';
+import { useNavigation } from '@react-navigation/native';
 import { View, Text, TouchableOpacity, Image, StyleSheet, ImageBackground} from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 const HomeScreen = () => {
+  const navigation = useNavigation();
+
+  const handlelicao = () => {
+    navigation.navigate('LessonsScreen');
+  };
+
   return (
     <View style={styles.container}>
       <ImageBackground source={require('../../assets/Background.png')} style={styles.backgroundImage}>
@@ -14,7 +21,7 @@ const HomeScreen = () => {
 
       {/* Botões de seções */}
       <View style={styles.sectionContainer}>
-        <TouchableOpacity style={styles.sectionButton}>
+        <TouchableOpacity style={styles.sectionButton} onPress={handlelicao}>
           <Image 
             source={require('../../assets/Licao.png')} // Substitua pelo link da imagem de "Lições"
             style={styles.sectionImage}
