@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, Image} from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
 const LessonCard = ({ title, progress }) => {
@@ -16,8 +16,8 @@ const LessonCard = ({ title, progress }) => {
 const A3 = () => {
 
     const navigation = useNavigation();
-    const handleA2 = () => {
-        navigation.navigate('A2');
+    const handleLessonsScreen = () => {
+        navigation.navigate('LessonsScreen');
       };
 
   return (
@@ -33,11 +33,17 @@ const A3 = () => {
         <Text style={styles.description}>
         Por isso, entender e gerenciar a ansiedade é tão importante. Quando ela é mantida em equilíbrio, é uma aliada. Mas quando toma conta, é hora de buscar formas saudáveis de lidar com ela — seja com técnicas de respiração, exercícios, ou até ajuda profissional.
         </Text>
+
+        <Image 
+        source={require('../../assets/A.png')} // Substitua pelo link da imagem do personagem
+        style={styles.characterImage}
+      />
+
       </View>
 
       {/* Botão na parte inferior */}
-      <TouchableOpacity style={styles.button} onPress={handleA2}>
-        <Text style={styles.buttonText}>&gt;</Text>
+      <TouchableOpacity style={styles.button} onPress={handleLessonsScreen}>
+        <Text style={styles.buttonText}>CONCLUIR</Text>
       </TouchableOpacity>
     </View>
   );
@@ -114,6 +120,11 @@ const styles = StyleSheet.create({
   progressText: {
     fontSize: 12,
     color: '#6B7280',
+  },
+  characterImage: {
+    width: 200,
+    height: 200,
+    alignSelf: 'center',
   },
 });
 
