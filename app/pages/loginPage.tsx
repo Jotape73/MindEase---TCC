@@ -4,7 +4,7 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
 import { useNavigation } from '@react-navigation/native';
 
-const loginPage = () => {
+const LoginPage = () => {
   const navigation = useNavigation();
   const handleEntrar= () => {
     navigation.navigate('Entrar');
@@ -113,4 +113,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default loginPage;
+export default LoginPage;

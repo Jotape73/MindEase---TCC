@@ -2,15 +2,16 @@ import { Stack } from "expo-router";
 import { useFonts } from 'expo-font';
 import { useEffect } from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import LoginPage from './pages/loginPage';
+import LoginPage from './pages/LoginPage';
 import Entrar from './pages/Entrar';
 import HomeScreen from './pages/HomeScreen';
 import LessonsScreen from "./pages/LessonsScreen";
 import { NavigationContainer } from '@react-navigation/native';
 import React from "react";
 import L1 from "./pages/L1";
-import L2 from "./pages/L2";
-import L3 from "./pages/L3";
+import A from "./pages/A";
+import A2 from "./pages/A2";
+import A3 from "./pages/A3";
 
 export default function RootLayout() {
   const [loaded] = useFonts({
@@ -83,8 +84,17 @@ export default function RootLayout() {
           }}
         />
         <Stack.Screen 
-          name="L2" 
-          component={L2}
+          name="A" 
+          component={A}
+          options={{
+            headerShown: false,
+            statusBarBackgroundColor: "#f5f5f5",
+            statusBarStyle: "dark",
+          }}
+        />
+       <Stack.Screen 
+          name="A2" 
+          component={A2}
           options={{
             headerShown: false,
             statusBarBackgroundColor: "#f5f5f5",
@@ -92,8 +102,8 @@ export default function RootLayout() {
           }}
         />
         <Stack.Screen 
-          name="L3" 
-          component={L3}
+          name="A3" 
+          component={A3}
           options={{
             headerShown: false,
             statusBarBackgroundColor: "#f5f5f5",
