@@ -8,6 +8,9 @@ import HomeScreen from './pages/HomeScreen';
 import LessonsScreen from "./pages/LessonsScreen";
 import { NavigationContainer } from '@react-navigation/native';
 import React from "react";
+import L1 from "./pages/L1";
+import L2 from "./pages/L2";
+import L3 from "./pages/L3";
 
 export default function RootLayout() {
   const [loaded] = useFonts({
@@ -27,7 +30,7 @@ export default function RootLayout() {
 
   return (
     <NavigationContainer independent={true}>
-      <Stack.Navigator initialRouteName="LoginPage">
+      <Stack.Navigator initialRouteName="L1">
       <Stack.Screen 
           name="LoginPage" 
           component={LoginPage}
@@ -64,6 +67,33 @@ export default function RootLayout() {
         <Stack.Screen 
           name="HomeScreen" 
           component={HomeScreen}
+          options={{
+            headerShown: false,
+            statusBarBackgroundColor: "#f5f5f5",
+            statusBarStyle: "dark",
+          }}
+        />
+        <Stack.Screen 
+          name="L1" 
+          component={L1}
+          options={{
+            headerShown: false,
+            statusBarBackgroundColor: "#f5f5f5",
+            statusBarStyle: "dark",
+          }}
+        />
+        <Stack.Screen 
+          name="L2" 
+          component={L2}
+          options={{
+            headerShown: false,
+            statusBarBackgroundColor: "#f5f5f5",
+            statusBarStyle: "dark",
+          }}
+        />
+        <Stack.Screen 
+          name="L3" 
+          component={L3}
           options={{
             headerShown: false,
             statusBarBackgroundColor: "#f5f5f5",
