@@ -12,7 +12,7 @@ const HomeScreen = () => {
 
   return (
     <View style={styles.container}>
-      <ImageBackground source={require('../../assets/Background.png')} style={styles.backgroundImage}>
+      <ImageBackground source={require('../../assets/Background.jpg')} style={styles.backgroundImage}>
       {/* Imagem do personagem */}
       <Image 
         source={require('../../assets/Piscada.png')} // Substitua pelo link da imagem do personagem
@@ -22,16 +22,13 @@ const HomeScreen = () => {
       {/* Botões de seções */}
       <View style={styles.sectionContainer}>
         <TouchableOpacity style={styles.sectionButton} onPress={handlelicao}>
-          <Image 
-            source={require('../../assets/Licao.png')} // Substitua pelo link da imagem de "Lições"
-            style={styles.sectionImage}
-          />
-          <Text style={styles.sectionText}>Lições</Text>
+        <Image source={require('../../assets/Licao.png')} style={styles.sectionImage} />
+        <Text style={styles.sectionText}>Lições</Text>
         </TouchableOpacity>
         
         <TouchableOpacity style={styles.sectionButton}>
           <Image 
-            source={{ uri: 'https://link-da-imagem-respirar.png' }} // Substitua pelo link da imagem de "Respirar"
+            source={require('../../assets/Respirar.png')} // Substitua pelo link da imagem de "Respirar"
             style={styles.sectionImage}
           />
           <Text style={styles.sectionText}>Respirar</Text>
@@ -39,7 +36,7 @@ const HomeScreen = () => {
         
         <TouchableOpacity style={styles.sectionButton}>
           <Image 
-            source={{ uri: 'https://link-da-imagem-melodias.png' }} // Substitua pelo link da imagem de "Melodias de sono"
+            source={require('../../assets/sono.png')} // Substitua pelo link da imagem de "Melodias de sono"
             style={styles.sectionImage}
           />
           <Text style={styles.sectionText}>Melodias de sono</Text>
@@ -47,7 +44,7 @@ const HomeScreen = () => {
         
         <TouchableOpacity style={styles.sectionButton}>
           <Image 
-            source={{ uri: 'https://link-da-imagem-citacoes.png' }} // Substitua pelo link da imagem de "Citações"
+            source={require('../../assets/Citacao.png')} // Substitua pelo link da imagem de "Citações"
             style={styles.sectionImage}
           />
           <Text style={styles.sectionText}>Citações</Text>
@@ -79,6 +76,7 @@ const styles = StyleSheet.create({
     flexGrow: 1,
     resizeMode: 'cover',
     padding: 20,
+    alignItems:'center',
   },
   characterImage: {
     width: 200,
@@ -94,19 +92,20 @@ const styles = StyleSheet.create({
   sectionButton: {
     width: 150,
     height: 150,
-    backgroundColor: '#c0d2f0',
-    borderRadius: 15,
+    borderRadius: 25,
     justifyContent: 'center',
     alignItems: 'center',
     margin: 10,
+    marginBottom: 30,
   },
   sectionImage: {
-    width: 100,
-    height: 100,
+    width: 150,
+    height: 150,
+    borderRadius: 25,
     marginBottom: 5,
   },
   sectionText: {
-    fontSize: 14,
+    fontSize: 18,
     fontWeight: 'bold',
     color: '#000',
     textAlign: 'center',
@@ -129,9 +128,9 @@ const styles = StyleSheet.create({
   navigationBar: {
     flexDirection: 'row',
     justifyContent: 'space-around',
-    width: '100%',
-    paddingHorizontal: 40,
-    paddingVertical: 10,
+    width: '120%',
+    paddingHorizontal: 30,
+    paddingVertical: 5,
     borderTopWidth: 1,
     borderColor: '#e0e0e0',
     backgroundColor: '#fff',

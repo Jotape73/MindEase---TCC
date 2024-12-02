@@ -1,17 +1,12 @@
 {
   "expo": {
     "name": "MindEase---TCC",
-    "slug": "MindEase---TCC",
+    "slug": "mindease-tcc",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
     "scheme": "myapp",
     "userInterfaceStyle": "automatic",
-    "splash": {
-      "image": "./assets/images/splash.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
-    },
     "ios": {
       "supportsTablet": true
     },
@@ -27,11 +22,22 @@
       "favicon": "./assets/images/favicon.png"
     },
     "plugins": [
-      "expo-router",
-      "expo-font"
+      "expo-router"
     ],
     "experiments": {
       "typedRoutes": true
-    }
+    },
+    "eas": {
+      "projectId": "5f51753a-c850-4159-b054-9478d419a413"
+    },
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "23de9d5e-8f69-4368-ba89-8078721956a1"
+      }
+    },
+    "owner": "jotape4422"
   }
 }

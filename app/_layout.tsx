@@ -2,11 +2,12 @@ import { Stack } from "expo-router";
 import { useFonts } from 'expo-font';
 import { useEffect } from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import loginPage from './pages/loginPage';
+import LoginPage from './pages/loginPage';
 import Entrar from './pages/Entrar';
 import HomeScreen from './pages/HomeScreen';
 import LessonsScreen from "./pages/LessonsScreen";
-import { NavigationContainer, NavigationIndependentTree } from '@react-navigation/native';
+import { NavigationContainer } from '@react-navigation/native';
+import React from "react";
 
 export default function RootLayout() {
   const [loaded] = useFonts({
@@ -24,14 +25,12 @@ export default function RootLayout() {
 
   const Stack = createNativeStackNavigator();
 
-  function NestedNavigator() {
-    return (
-      <NavigationIndependentTree>
-        <NavigationContainer>
-        <Stack.Navigator initialRouteName="loginPage">
+  return (
+    <NavigationContainer independent={true}>
+      <Stack.Navigator initialRouteName="LoginPage">
       <Stack.Screen 
-          name="Login" 
-          component={loginPage}
+          name="LoginPage" 
+          component={LoginPage}
           options={{
             headerShown: false,
             statusBarBackgroundColor: "#f5f5f5",
@@ -73,7 +72,5 @@ export default function RootLayout() {
         />
       </Stack.Navigator>
     </NavigationContainer>
-    </NavigationIndependentTree>
    );
-}
 }
