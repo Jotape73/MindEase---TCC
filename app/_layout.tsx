@@ -20,6 +20,8 @@ import B3 from "./pages/B3";
 import C3 from "./pages/C3";
 import C4 from "./pages/C4";
 import L2 from "./pages/L2";
+import RespirarT from "./pages/RespirarT";
+import Respirar from "./pages/Respirar";
 
 export default function RootLayout() {
   const [loaded] = useFonts({
@@ -39,7 +41,7 @@ export default function RootLayout() {
 
   return (
     <NavigationContainer independent={true}>
-      <Stack.Navigator initialRouteName="L1">
+      <Stack.Navigator initialRouteName="LessonsScreen">
       <Stack.Screen 
           name="LoginPage" 
           component={LoginPage}
@@ -184,6 +186,24 @@ export default function RootLayout() {
         <Stack.Screen 
           name="L2" 
           component={L2}
+          options={{
+            headerShown: false,
+            statusBarBackgroundColor: "#f5f5f5",
+            statusBarStyle: "dark",
+          }}
+        />
+        <Stack.Screen 
+          name="RespirarT" 
+          component={RespirarT}
+          options={{
+            headerShown: false,
+            statusBarBackgroundColor: "#f5f5f5",
+            statusBarStyle: "dark",
+          }}
+        />
+        <Stack.Screen 
+          name="Respirar" 
+          component={Respirar}
           options={{
             headerShown: false,
             statusBarBackgroundColor: "#f5f5f5",

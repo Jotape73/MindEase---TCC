@@ -32,16 +32,9 @@ const TopicButton = ({ icon, title, onPress }) => {
 const L2 = () => {
 
     const navigation = useNavigation();
-    const handleA = () => {
-        navigation.navigate('A');
-      };
     
-      const handleB = () => {
-        navigation.navigate('L2');
-      };
-    
-      const handleC = () => {
-        navigation.navigate('L3');
+      const handleR = () => {
+        navigation.navigate('RespirarT');
       };
 
   return (
@@ -62,9 +55,9 @@ const L2 = () => {
 
         {/* Botões de Tópicos */}
         <TopicButton
-          icon={require('../../assets/icon1.png')} // Substitua pelo caminho correto da imagem
+          icon={require('../../assets/icon4.png')} // Substitua pelo caminho correto da imagem
           title="Respiração"
-          onPress={handleA}
+          onPress={handleR}
         />
       </ScrollView>
 
