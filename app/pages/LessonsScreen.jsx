@@ -34,6 +34,10 @@ const LessonsScreen = () => {
     navigation.navigate('L3');
   };
 
+  const handleHome = () => {
+    navigation.navigate('HomeScreen');
+  };
+
   return (
     <View style={styles.container}>
       <ScrollView>
@@ -66,7 +70,7 @@ const LessonsScreen = () => {
       </ScrollView>
 
       <View style={styles.navigationBar}>
-        <TouchableOpacity style={styles.navButton}>
+        <TouchableOpacity style={styles.navButton} onPress={handleHome}>
           <Icon name="home" size={24} color="#9e83f5" />
           <Text style={styles.navText}>Home</Text>
         </TouchableOpacity>

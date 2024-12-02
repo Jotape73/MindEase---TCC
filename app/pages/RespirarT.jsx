@@ -1,16 +1,17 @@
 import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, Image } from 'react-native';
+import Icon from 'react-native-vector-icons/FontAwesome';
+import { useNavigation } from '@react-navigation/native';
 
-const LessonCard = ({ title, progress, image }) => {
+const LessonCard = ({ title, image }) => {
     return (
       <View style={styles.card}>
         <Image source={image} style={styles.cardImage} />
         <View style={styles.cardContent}>
           <Text style={styles.cardTitle}>{title}</Text>
-          <View style={styles.progressBar}>
-            <View style={[styles.progress, { width: `${progress}%` }]} />
-          </View>
-          <Text style={styles.progressText}>{`${progress}% Concluído`}</Text>
+          <Text style={styles.headerDescription}>
+          O Respirar é como aquele botão de pausa que você sempre quis. Perfeito para praticar respiração profunda...
+          </Text>
         </View>
       </View>
     );
@@ -30,18 +31,18 @@ const TimerScreen = ({ navigation }) => {
   const handleStart = () => {
     navigation.navigate('Respirar', { time });
   };
+  const handleHome = () => {
+    navigation.navigate('HomeScreen');
+  };
 
   return (
     <View style={styles.container}>
         <View style={styles.cardsContainer}>
         <LessonCard
-          title="Lições de curto prazo"
-          progress={50}
+          title="Respirar"
           image={require('../../assets/L4.png')} // Substitua pelo caminho correto da imagem
         />
-          <Text style={styles.headerDescription}>
-          O Respirar é como aquele botão de pausa que você sempre quis. Perfeito para praticar respiração profunda...
-          </Text>
+          
         </View>
 
       {/* Seleção de Tempo */}
@@ -59,6 +60,19 @@ const TimerScreen = ({ navigation }) => {
       <TouchableOpacity style={styles.button} onPress={handleStart}>
         <Text style={styles.buttonText}>VAMOS COMEÇAR</Text>
       </TouchableOpacity>
+
+      <View style={styles.navigationBar}>
+        <TouchableOpacity style={styles.navButton} onPress={handleHome}>
+          <Icon name="home" size={24} color="#9e83f5" />
+          <Text style={styles.navText}>Home</Text>
+        </TouchableOpacity>
+        
+        <TouchableOpacity style={styles.navButton}>
+          <Icon name="user" size={24} color="#9e83f5" />
+          <Text style={styles.navText}>Profile</Text>
+        </TouchableOpacity>
+      </View>
+
     </View>
   );
 };
@@ -71,9 +85,8 @@ const styles = StyleSheet.create({
     backgroundColor: '#f0f8ff',
   },
   headerDescription: {
-    fontSize: 14,
-    color: '#6B7280',
-    textAlign: 'center',
+    fontSize: 20,
+    color: '#666',
     margin: 10,
   },
   timeSelector: {
@@ -125,7 +138,7 @@ const styles = StyleSheet.create({
     padding: 16,
   },
   cardTitle: {
-    fontSize: 16,
+    fontSize: 25,
     fontWeight: 'bold',
     marginBottom: 8,
   },
@@ -143,6 +156,26 @@ const styles = StyleSheet.create({
   progressText: {
     fontSize: 12,
     color: '#6B7280',
+  },
+  navigationBar: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    width: '120%',
+    paddingHorizontal: 30,
+    paddingVertical: 5,
+    borderTopWidth: 1,
+    borderColor: '#e0e0e0',
+    backgroundColor: '#fff',
+    position: 'absolute',
+    bottom: 0,
+  },
+  navButton: {
+    alignItems: 'center',
+  },
+  navText: {
+    fontSize: 12,
+    color: '#9e83f5',
+    marginTop: 5,
   },
 });
 

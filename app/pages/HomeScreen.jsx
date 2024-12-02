@@ -10,6 +10,10 @@ const HomeScreen = () => {
     navigation.navigate('LessonsScreen');
   };
 
+  const handleRespirar = () => {
+    navigation.navigate('RespirarT');
+  };
+
   return (
     <View style={styles.container}>
       <ImageBackground source={require('../../assets/Background.jpg')} style={styles.backgroundImage}>
@@ -26,7 +30,7 @@ const HomeScreen = () => {
         <Text style={styles.sectionText}>Lições</Text>
         </TouchableOpacity>
         
-        <TouchableOpacity style={styles.sectionButton}>
+        <TouchableOpacity style={styles.sectionButton} onPress={handleRespirar}>
           <Image 
             source={require('../../assets/Respirar.png')} // Substitua pelo link da imagem de "Respirar"
             style={styles.sectionImage}

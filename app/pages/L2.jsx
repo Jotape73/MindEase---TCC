@@ -37,6 +37,10 @@ const L2 = () => {
         navigation.navigate('RespirarT');
       };
 
+      const handleHome = () => {
+        navigation.navigate('HomeScreen');
+      };
+
   return (
     <View style={styles.container}>
       <ScrollView contentContainerStyle={styles.scrollContainer}>
@@ -45,7 +49,7 @@ const L2 = () => {
         <View style={styles.cardsContainer}>
         <LessonCard
           title="Lições de curto prazo"
-          progress={50}
+          progress={30}
           image={require('../../assets/L2.png')} // Substitua pelo caminho correto da imagem
         />
           <Text style={styles.headerDescription}>
@@ -62,7 +66,7 @@ const L2 = () => {
       </ScrollView>
 
       <View style={styles.navigationBar}>
-        <TouchableOpacity style={styles.navButton}>
+        <TouchableOpacity style={styles.navButton} onPress={handleHome}>
           <Icon name="home" size={24} color="#9e83f5" />
           <Text style={styles.navText}>Home</Text>
         </TouchableOpacity>
