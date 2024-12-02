@@ -16,9 +16,9 @@ const LessonCard = ({ title, progress }) => {
 const A3 = () => {
 
     const navigation = useNavigation();
-    const handleC2 = () => {
-        navigation.navigate('C2');
-      };
+    const handleLessonsScreen = () => {
+      navigation.navigate('LessonsScreen');
+    };
 
   return (
     <View style={styles.container}>
@@ -31,18 +31,18 @@ const A3 = () => {
       <View style={styles.card}>
       <Text style={styles.title}>Causas e teorias</Text>
         <Text style={styles.description}>
-        Ansiedade é como aquele amigo que aparece sem ser convidado para uma festa: às vezes traz algo útil, mas na maioria das vezes só complica. Ela tem muitas causas e várias teorias tentando explicar por que aparece. Vamos descomplicar isso juntos!
+        Em resumo, a ansiedade é um pouco de genética, um tanto de experiências vividas, e uma pitada de como enxergamos o mundo. Saber as causas e teorias ajuda a entender que, embora desconfortável, a ansiedade não é tão misteriosa quanto parece. Ela é como um alarme de incêndio sensível demais — às vezes útil, mas frequentemente disparando sem necessidade.
         </Text>
 
         <Image 
-        source={require('../../assets/A.png')} // Substitua pelo link da imagem do personagem
+        source={require('../../assets/C.png')} // Substitua pelo link da imagem do personagem
         style={styles.characterImage}
       />
 
       </View>
 
       {/* Botão na parte inferior */}
-      <TouchableOpacity style={styles.button} onPress={handleC2}>
+      <TouchableOpacity style={styles.button} onPress={handleLessonsScreen}>
         <Text style={styles.buttonText}>&gt;</Text>
       </TouchableOpacity>
     </View>

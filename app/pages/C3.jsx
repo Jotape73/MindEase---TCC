@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, Image} from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
 const LessonCard = ({ title, progress }) => {
@@ -13,11 +13,11 @@ const LessonCard = ({ title, progress }) => {
     );
   };
 
-const A3 = () => {
+const B = () => {
 
     const navigation = useNavigation();
-    const handleC2 = () => {
-        navigation.navigate('C2');
+    const handleC4 = () => {
+        navigation.navigate('C4');
       };
 
   return (
@@ -27,22 +27,17 @@ const A3 = () => {
           progress={50}
         />
 
-      {/* Card central ocupando a maior parte da tela */}
+      {/* Card central */}
       <View style={styles.card}>
-      <Text style={styles.title}>Causas e teorias</Text>
-        <Text style={styles.description}>
-        Ansiedade é como aquele amigo que aparece sem ser convidado para uma festa: às vezes traz algo útil, mas na maioria das vezes só complica. Ela tem muitas causas e várias teorias tentando explicar por que aparece. Vamos descomplicar isso juntos!
-        </Text>
-
-        <Image 
-        source={require('../../assets/A.png')} // Substitua pelo link da imagem do personagem
-        style={styles.characterImage}
-      />
-
+        <Text style={styles.title}>Teorias </Text>
+        <Text style={styles.listItem}>• Teoria Evolutiva: A ansiedade foi essencial para nossos ancestrais sobreviverem a predadores. Hoje, em vez de fugir de tigres, fugimos de reuniões ou prazos apertados. É o mesmo sistema de alerta, mas com "ameaças" modernizadas.</Text>
+        <Text style={styles.listItem}>• Teoria Psicanalítica (Freud): Segundo Freud, a ansiedade surge de conflitos internos reprimidos, como se a mente fosse um baú de memórias desconfortáveis tentando abrir sozinho.</Text>
+        <Text style={styles.listItem}>• Teoria do Condicionamento (Behaviorismo): Aqui, a ideia é que aprendemos a ter medo de certas situações através de experiências ruins. Por exemplo, se você apresentou um trabalho na escola e foi criticado, pode associar futuras apresentações a algo assustador.</Text>
+        <Text style={styles.listItem}>• Teoria Cognitivo-Comportamental: Nossa mente gosta de dramatizar. Pensar que "algo vai dar muito errado" pode intensificar a ansiedade. É como se seu cérebro fosse um roteirista de filmes de suspense exagerado. </Text>
       </View>
 
       {/* Botão na parte inferior */}
-      <TouchableOpacity style={styles.button} onPress={handleC2}>
+      <TouchableOpacity style={styles.button} onPress={handleC4}>
         <Text style={styles.buttonText}>&gt;</Text>
       </TouchableOpacity>
     </View>
@@ -89,9 +84,16 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   description: {
+    fontSize: 16,
+    color: '#6c6c6c',
+    textAlign: 'justify',
+    marginBottom: 10,
+  },
+  listItem: {
     fontSize: 20,
     color: '#6c6c6c',
     textAlign: 'justify',
+    marginBottom: 5,
   },
   button: {
     width: 350,
@@ -123,11 +125,6 @@ const styles = StyleSheet.create({
     fontSize: 12,
     color: '#6B7280',
   },
-  characterImage: {
-    width: 200,
-    height: 200,
-    alignSelf: 'center',
-  },
 });
 
-export default A3;
+export default B;

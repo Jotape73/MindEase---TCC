@@ -11,10 +11,14 @@ import React from "react";
 import L1 from "./pages/L1";
 import A from "./pages/A";
 import B from "./pages/B";
+import C from "./pages/C";
 import A2 from "./pages/A2";
 import B2 from "./pages/B2";
+import C2 from "./pages/C2";
 import A3 from "./pages/A3";
 import B3 from "./pages/B3";
+import C3 from "./pages/C3";
+import C4 from "./pages/C4";
 import L2 from "./pages/L2";
 
 export default function RootLayout() {
@@ -107,7 +111,7 @@ export default function RootLayout() {
         />
         <Stack.Screen 
           name="C" 
-          component={B}
+          component={C}
           options={{
             headerShown: false,
             statusBarBackgroundColor: "#f5f5f5",
@@ -133,6 +137,15 @@ export default function RootLayout() {
           }}
         />
         <Stack.Screen 
+          name="C2" 
+          component={C2}
+          options={{
+            headerShown: false,
+            statusBarBackgroundColor: "#f5f5f5",
+            statusBarStyle: "dark",
+          }}
+        />
+        <Stack.Screen 
           name="A3" 
           component={A3}
           options={{
@@ -144,6 +157,24 @@ export default function RootLayout() {
         <Stack.Screen 
           name="B3" 
           component={B3}
+          options={{
+            headerShown: false,
+            statusBarBackgroundColor: "#f5f5f5",
+            statusBarStyle: "dark",
+          }}
+        />
+        <Stack.Screen 
+          name="C3" 
+          component={C3}
+          options={{
+            headerShown: false,
+            statusBarBackgroundColor: "#f5f5f5",
+            statusBarStyle: "dark",
+          }}
+        />
+        <Stack.Screen 
+          name="C4" 
+          component={C4}
           options={{
             headerShown: false,
             statusBarBackgroundColor: "#f5f5f5",

@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, Image} from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
 const LessonCard = ({ title, progress }) => {
@@ -13,11 +13,11 @@ const LessonCard = ({ title, progress }) => {
     );
   };
 
-const A3 = () => {
+const B = () => {
 
     const navigation = useNavigation();
-    const handleC2 = () => {
-        navigation.navigate('C2');
+    const handleC3 = () => {
+        navigation.navigate('C3');
       };
 
   return (
@@ -27,22 +27,17 @@ const A3 = () => {
           progress={50}
         />
 
-      {/* Card central ocupando a maior parte da tela */}
+      {/* Card central */}
       <View style={styles.card}>
-      <Text style={styles.title}>Causas e teorias</Text>
-        <Text style={styles.description}>
-        Ansiedade é como aquele amigo que aparece sem ser convidado para uma festa: às vezes traz algo útil, mas na maioria das vezes só complica. Ela tem muitas causas e várias teorias tentando explicar por que aparece. Vamos descomplicar isso juntos!
-        </Text>
-
-        <Image 
-        source={require('../../assets/A.png')} // Substitua pelo link da imagem do personagem
-        style={styles.characterImage}
-      />
-
+        <Text style={styles.title}>Causas</Text>
+        <Text style={styles.listItem}>• Fatores Genéticos: Se alguém da sua família vive com ansiedade, há uma boa chance de que você tenha herdado esse "dom". É como passar um gene, só que, em vez de superpoderes, é uma propensão ao nervosismo.</Text>
+        <Text style={styles.listItem}>• Estilo de Vida Moderno: Prazos apertados, redes sociais e café em excesso (culpado aqui também!) podem amplificar os níveis de estresse e ansiedade. O cérebro não sabe diferenciar um leão na savana de uma notificação irritante.</Text>
+        <Text style={styles.listItem}>• Traumas e Experiências de Vida: Um evento difícil ou traumático pode deixar marcas profundas e desencadear episódios de ansiedade, como uma memória persistente que não sabe quando parar.</Text>
+        <Text style={styles.listItem}>• Fatores Biológicos: Desequilíbrios químicos no cérebro, como níveis baixos de serotonina ou dopamina, também estão na lista de suspeitos. </Text>
       </View>
 
       {/* Botão na parte inferior */}
-      <TouchableOpacity style={styles.button} onPress={handleC2}>
+      <TouchableOpacity style={styles.button} onPress={handleC3}>
         <Text style={styles.buttonText}>&gt;</Text>
       </TouchableOpacity>
     </View>
@@ -92,6 +87,13 @@ const styles = StyleSheet.create({
     fontSize: 20,
     color: '#6c6c6c',
     textAlign: 'justify',
+    marginBottom: 10,
+  },
+  listItem: {
+    fontSize: 18,
+    color: '#6c6c6c',
+    textAlign: 'justify',
+    marginBottom: 5,
   },
   button: {
     width: 350,
@@ -123,11 +125,6 @@ const styles = StyleSheet.create({
     fontSize: 12,
     color: '#6B7280',
   },
-  characterImage: {
-    width: 200,
-    height: 200,
-    alignSelf: 'center',
-  },
 });
 
-export default A3;
+export default B;
