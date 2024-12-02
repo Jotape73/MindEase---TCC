@@ -86,7 +86,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   description: {
-    fontSize: 16,
+    fontSize: 20,
     color: '#6c6c6c',
     textAlign: 'justify',
   },
