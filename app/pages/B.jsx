@@ -13,11 +13,11 @@ const LessonCard = ({ title, progress }) => {
     );
   };
 
-const A2 = () => {
+const B = () => {
 
     const navigation = useNavigation();
-    const handleA3 = () => {
-        navigation.navigate('A3');
+    const handleB2 = () => {
+        navigation.navigate('B2');
       };
 
   return (
@@ -27,17 +27,21 @@ const A2 = () => {
           progress={50}
         />
 
-      {/* Card central ocupando a maior parte da tela */}
+      {/* Card central */}
       <View style={styles.card}>
-        <Text style={styles.title}>O que é Ansiedade?</Text>
+        <Text style={styles.title}>Efeitos mentais</Text>
         <Text style={styles.description}>
-        Pensa nos nossos ancestrais: eles precisavam estar alertas para fugir de predadores ou lidar com situações perigosas. Essa “turbinada” no sistema, com coração acelerado e foco total, era o que garantia a sobrevivência.
-        Agora, no mundo moderno, as ameaças são outras: prazos, provas, aquela apresentação importante... e o sistema de alerta continua firme e forte! O problema é que, às vezes, ele dispara com frequência ou intensidade demais, e aí vira um peso, impactando nossa vida.
+          No nível mental, a ansiedade pode impactar pensamentos, emoções e comportamentos:
         </Text>
+        <Text style={styles.listItem}>• Preocupação constante: pensamentos repetitivos e difíceis de controlar.</Text>
+        <Text style={styles.listItem}>• Medo irracional: percepção de perigo mesmo em situações seguras.</Text>
+        <Text style={styles.listItem}>• Dificuldade de concentração: a mente está focada no "risco", dificultando o foco em outras tarefas.</Text>
+        <Text style={styles.listItem}>• Irritabilidade: altos níveis de estresse podem tornar o indivíduo mais suscetível a reações emocionais intensas.</Text>
+        <Text style={styles.listItem}>• Insônia: dificuldade para adormecer ou permanecer dormindo, devido a pensamentos intrusivos.</Text>
       </View>
 
       {/* Botão na parte inferior */}
-      <TouchableOpacity style={styles.button} onPress={handleA3}>
+      <TouchableOpacity style={styles.button} onPress={handleB2}>
         <Text style={styles.buttonText}>&gt;</Text>
       </TouchableOpacity>
     </View>
@@ -87,6 +91,13 @@ const styles = StyleSheet.create({
     fontSize: 16,
     color: '#6c6c6c',
     textAlign: 'justify',
+    marginBottom: 10,
+  },
+  listItem: {
+    fontSize: 16,
+    color: '#6c6c6c',
+    textAlign: 'justify',
+    marginBottom: 5,
   },
   button: {
     width: 350,
@@ -120,4 +131,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default A2;
+export default B;

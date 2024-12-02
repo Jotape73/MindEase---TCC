@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, Image} from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
 const LessonCard = ({ title, progress }) => {
@@ -13,11 +13,11 @@ const LessonCard = ({ title, progress }) => {
     );
   };
 
-const A2 = () => {
+const A3 = () => {
 
     const navigation = useNavigation();
-    const handleA3 = () => {
-        navigation.navigate('A3');
+    const handleLessonsScreen = () => {
+        navigation.navigate('LessonsScreen');
       };
 
   return (
@@ -29,16 +29,20 @@ const A2 = () => {
 
       {/* Card central ocupando a maior parte da tela */}
       <View style={styles.card}>
-        <Text style={styles.title}>O que é Ansiedade?</Text>
         <Text style={styles.description}>
-        Pensa nos nossos ancestrais: eles precisavam estar alertas para fugir de predadores ou lidar com situações perigosas. Essa “turbinada” no sistema, com coração acelerado e foco total, era o que garantia a sobrevivência.
-        Agora, no mundo moderno, as ameaças são outras: prazos, provas, aquela apresentação importante... e o sistema de alerta continua firme e forte! O problema é que, às vezes, ele dispara com frequência ou intensidade demais, e aí vira um peso, impactando nossa vida.
+        Esses efeitos físicos e mentais frequentemente se influenciam mutuamente. Por exemplo, palpitações (físico) podem intensificar o medo de que algo está errado (mental), criando um ciclo vicioso. Reconhecer esses sinais é um passo importante para buscar estratégias de alívio, como técnicas de respiração, terapia ou suporte médico.
         </Text>
+
+        <Image 
+        source={require('../../assets/B.png')} // Substitua pelo link da imagem do personagem
+        style={styles.characterImage}
+      />
+
       </View>
 
       {/* Botão na parte inferior */}
-      <TouchableOpacity style={styles.button} onPress={handleA3}>
-        <Text style={styles.buttonText}>&gt;</Text>
+      <TouchableOpacity style={styles.button} onPress={handleLessonsScreen}>
+        <Text style={styles.buttonText}>CONCLUIR</Text>
       </TouchableOpacity>
     </View>
   );
@@ -118,6 +122,11 @@ const styles = StyleSheet.create({
     fontSize: 12,
     color: '#6B7280',
   },
+  characterImage: {
+    width: 200,
+    height: 200,
+    alignSelf: 'center',
+  },
 });
 
-export default A2;
+export default A3;

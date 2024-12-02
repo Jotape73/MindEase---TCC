@@ -37,11 +37,11 @@ const L1 = () => {
       };
     
       const handleB = () => {
-        navigation.navigate('L2');
+        navigation.navigate('B');
       };
     
       const handleC = () => {
-        navigation.navigate('L3');
+        navigation.navigate('C');
       };
 
   return (
@@ -71,12 +71,12 @@ const L1 = () => {
         <TopicButton
           icon={require('../../assets/icon2.png')} // Substitua pelo caminho correto da imagem
           title="Efeitos físicos e mentais"
-          onPress={() => console.log('Tópico 2')}
+          onPress={handleB}
         />
         <TopicButton
           icon={require('../../assets/icon3.png')} // Substitua pelo caminho correto da imagem
           title="Causas e teorias"
-          onPress={() => console.log('Tópico 3')}
+          onPress={handleC}
         />
       </ScrollView>
 

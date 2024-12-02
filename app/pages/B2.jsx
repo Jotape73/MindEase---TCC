@@ -13,11 +13,11 @@ const LessonCard = ({ title, progress }) => {
     );
   };
 
-const A2 = () => {
+const B = () => {
 
     const navigation = useNavigation();
-    const handleA3 = () => {
-        navigation.navigate('A3');
+    const handleB3 = () => {
+        navigation.navigate('B3');
       };
 
   return (
@@ -27,17 +27,24 @@ const A2 = () => {
           progress={50}
         />
 
-      {/* Card central ocupando a maior parte da tela */}
+      {/* Card central */}
       <View style={styles.card}>
-        <Text style={styles.title}>O que é Ansiedade?</Text>
+        <Text style={styles.title}>Efeitos físicos</Text>
         <Text style={styles.description}>
-        Pensa nos nossos ancestrais: eles precisavam estar alertas para fugir de predadores ou lidar com situações perigosas. Essa “turbinada” no sistema, com coração acelerado e foco total, era o que garantia a sobrevivência.
-        Agora, no mundo moderno, as ameaças são outras: prazos, provas, aquela apresentação importante... e o sistema de alerta continua firme e forte! O problema é que, às vezes, ele dispara com frequência ou intensidade demais, e aí vira um peso, impactando nossa vida.
+          A ansiedade ativa o sistema nervoso simpático, desencadeando a chamada 
+          "resposta de luta ou fuga". Os sintomas físicos mais comuns incluem:
+          
+          {'\n\n'}• Aceleração dos batimentos cardíacos (taquicardia): o corpo se prepara para agir rapidamente.
+          {'\n\n'}• Respiração curta e rápida (hiperventilação): muitas vezes resulta em tonturas ou sensação de sufocamento.
+          {'\n\n'}• Sudorese: aumento na transpiração como forma de regular a temperatura corporal.
+          {'\n\n'}• Tensão muscular: geralmente nas costas, pescoço e ombros, devido ao estado de alerta constante.
+          {'\n\n'}• Problemas digestivos: náuseas, dores abdominais ou alterações no trânsito intestinal.
+          {'\n\n'}• Fadiga: o corpo se desgasta devido à ativação prolongada do sistema de estresse.
         </Text>
       </View>
 
       {/* Botão na parte inferior */}
-      <TouchableOpacity style={styles.button} onPress={handleA3}>
+      <TouchableOpacity style={styles.button} onPress={handleB3}>
         <Text style={styles.buttonText}>&gt;</Text>
       </TouchableOpacity>
     </View>
@@ -120,4 +127,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default A2;
+export default B;

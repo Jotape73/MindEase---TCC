@@ -1,12 +1,22 @@
 import React from 'react';
-import {
-  View,
-  Text,
-  StyleSheet,
-  Image,
-  TouchableOpacity,
-  ScrollView,
-} from 'react-native';
+import {View, Text, StyleSheet, Image, TouchableOpacity, ScrollView} from 'react-native';
+import Icon from 'react-native-vector-icons/FontAwesome';
+import { useNavigation } from '@react-navigation/native';
+
+const LessonCard = ({ title, progress, image }) => {
+    return (
+      <View style={styles.card}>
+        <Image source={image} style={styles.cardImage} />
+        <View style={styles.cardContent}>
+          <Text style={styles.cardTitle}>{title}</Text>
+          <View style={styles.progressBar}>
+            <View style={[styles.progress, { width: `${progress}%` }]} />
+          </View>
+          <Text style={styles.progressText}>{`${progress}% Concluído`}</Text>
+        </View>
+      </View>
+    );
+  };
 
 const TopicButton = ({ icon, title, onPress }) => {
   return (
@@ -19,54 +29,54 @@ const TopicButton = ({ icon, title, onPress }) => {
   );
 };
 
-const L1 = () => {
+const L2 = () => {
+
+    const navigation = useNavigation();
+    const handleA = () => {
+        navigation.navigate('A');
+      };
+    
+      const handleB = () => {
+        navigation.navigate('L2');
+      };
+    
+      const handleC = () => {
+        navigation.navigate('L3');
+      };
+
   return (
     <View style={styles.container}>
       <ScrollView contentContainerStyle={styles.scrollContainer}>
         {/* Cabeçalho */}
-        <View style={styles.header}>
-          <Image
-            source={require('../../assets/L1.png')} // Substitua pelo caminho correto da imagem
-            style={styles.headerImage}
-          />
-          <Text style={styles.headerTitle}>Lições de compreensão</Text>
+
+        <View style={styles.cardsContainer}>
+        <LessonCard
+          title="Lições de curto prazo"
+          progress={50}
+          image={require('../../assets/L2.png')} // Substitua pelo caminho correto da imagem
+        />
           <Text style={styles.headerDescription}>
-            Descubra um pouco de paz ao entender a origem da ansiedade. Como o
-            corpo vivencia um ataque de pânico e as possíveis causas por trás
-            disso.
+          Descubra jeitos simples e práticos de dar um "pause" na mente e deixar a ansiedade no banco de reservas. Você merece um respiro!
           </Text>
         </View>
 
         {/* Botões de Tópicos */}
         <TopicButton
           icon={require('../../assets/icon1.png')} // Substitua pelo caminho correto da imagem
-          title="O que é ansiedade?"
-          onPress={() => console.log('Tópico 1')}
-        />
-        <TopicButton
-          icon={require('../../assets/icon2.png')} // Substitua pelo caminho correto da imagem
-          title="Efeitos físicos e mentais"
-          onPress={() => console.log('Tópico 2')}
-        />
-        <TopicButton
-          icon={require('../../assets/icon3.png')} // Substitua pelo caminho correto da imagem
-          title="Causas e teorias"
-          onPress={() => console.log('Tópico 3')}
+          title="Respiração"
+          onPress={handleA}
         />
       </ScrollView>
 
-      {/* Botão Central */}
-      <View style={styles.centralButtonContainer}>
-        <TouchableOpacity style={styles.centralButton} />
-      </View>
-
-      {/* Rodapé */}
-      <View style={styles.footer}>
-        <TouchableOpacity>
-          <Text style={styles.footerText}>Home</Text>
+      <View style={styles.navigationBar}>
+        <TouchableOpacity style={styles.navButton}>
+          <Icon name="home" size={24} color="#9e83f5" />
+          <Text style={styles.navText}>Home</Text>
         </TouchableOpacity>
-        <TouchableOpacity>
-          <Text style={styles.footerText}>Profile</Text>
+        
+        <TouchableOpacity style={styles.navButton}>
+          <Icon name="user" size={24} color="#9e83f5" />
+          <Text style={styles.navText}>Profile</Text>
         </TouchableOpacity>
       </View>
     </View>
@@ -100,7 +110,7 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: '#6B7280',
     textAlign: 'center',
-    marginTop: 8,
+    margin: 10,
   },
   topicButton: {
     backgroundColor: '#F9FAFB',
@@ -127,25 +137,64 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginVertical: 16,
   },
-  centralButton: {
-    width: 70,
-    height: 70,
-    backgroundColor: '#FF0000',
-    borderRadius: 35,
-  },
-  footer: {
+  navigationBar: {
     flexDirection: 'row',
-    justifyContent: 'space-between',
-    padding: 16,
-    backgroundColor: '#fff',
+    justifyContent: 'space-around',
+    width: '100%',
+    paddingHorizontal: 30,
+    paddingVertical: 5,
     borderTopWidth: 1,
-    borderTopColor: '#E5E7EB',
+    borderColor: '#e0e0e0',
+    backgroundColor: '#fff',
+    position: 'absolute',
+    bottom: 0,
   },
-  footerText: {
+  navButton: {
+    alignItems: 'center',
+  },
+  navText: {
+    fontSize: 12,
+    color: '#9e83f5',
+    marginTop: 5,
+  },
+  card: {
+    backgroundColor: '#fff',
+    borderRadius: 8,
+    marginBottom: 16,
+    overflow: 'hidden',
+    elevation: 3, // Sombra no Android
+    shadowColor: '#000', // Sombra no iOS
+    shadowOpacity: 0.1,
+    shadowRadius: 8,
+    shadowOffset: { width: 0, height: 4 },
+  },
+  cardImage: {
+    width: '100%',
+    height: 150,
+  },
+  cardContent: {
+    padding: 16,
+  },
+  cardTitle: {
     fontSize: 16,
-    color: '#4F46E5',
     fontWeight: 'bold',
+    marginBottom: 8,
+  },
+  progressBar: {
+    height: 6,
+    backgroundColor: '#E5E7EB',
+    borderRadius: 3,
+    overflow: 'hidden',
+    marginBottom: 8,
+  },
+  progress: {
+    height: '100%',
+    backgroundColor: '#4F46E5',
+  },
+  progressText: {
+    fontSize: 12,
+    color: '#6B7280',
   },
 });
 
-export default L1;
+export default L2;

@@ -10,8 +10,12 @@ import { NavigationContainer } from '@react-navigation/native';
 import React from "react";
 import L1 from "./pages/L1";
 import A from "./pages/A";
+import B from "./pages/B";
 import A2 from "./pages/A2";
+import B2 from "./pages/B2";
 import A3 from "./pages/A3";
+import B3 from "./pages/B3";
+import L2 from "./pages/L2";
 
 export default function RootLayout() {
   const [loaded] = useFonts({
@@ -92,6 +96,24 @@ export default function RootLayout() {
             statusBarStyle: "dark",
           }}
         />
+        <Stack.Screen 
+          name="B" 
+          component={B}
+          options={{
+            headerShown: false,
+            statusBarBackgroundColor: "#f5f5f5",
+            statusBarStyle: "dark",
+          }}
+        />
+        <Stack.Screen 
+          name="C" 
+          component={B}
+          options={{
+            headerShown: false,
+            statusBarBackgroundColor: "#f5f5f5",
+            statusBarStyle: "dark",
+          }}
+        />
        <Stack.Screen 
           name="A2" 
           component={A2}
@@ -102,8 +124,35 @@ export default function RootLayout() {
           }}
         />
         <Stack.Screen 
+          name="B2" 
+          component={B2}
+          options={{
+            headerShown: false,
+            statusBarBackgroundColor: "#f5f5f5",
+            statusBarStyle: "dark",
+          }}
+        />
+        <Stack.Screen 
           name="A3" 
           component={A3}
+          options={{
+            headerShown: false,
+            statusBarBackgroundColor: "#f5f5f5",
+            statusBarStyle: "dark",
+          }}
+        />
+        <Stack.Screen 
+          name="B3" 
+          component={B3}
+          options={{
+            headerShown: false,
+            statusBarBackgroundColor: "#f5f5f5",
+            statusBarStyle: "dark",
+          }}
+        />
+        <Stack.Screen 
+          name="L2" 
+          component={L2}
           options={{
             headerShown: false,
             statusBarBackgroundColor: "#f5f5f5",
