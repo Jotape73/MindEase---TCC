@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigation } from '@react-navigation/native';
-import { View, Text, TouchableOpacity, Image, StyleSheet, ImageBackground} from 'react-native';
+import { View, Text, TouchableOpacity, Image, StyleSheet, ImageBackground, Linking} from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 const HomeScreen = () => {
@@ -13,6 +13,18 @@ const HomeScreen = () => {
   const handleRespirar = () => {
     navigation.navigate('RespirarT');
   };
+
+  const openSpotifyPlaylist = () => {
+    const playlistUrl = 'https://open.spotify.com/playlist/37i9dQZF1DWWKap1fTevjS?si=de23274ce67b4998';
+    Linking.openURL(playlistUrl).catch((err) =>
+      console.error('Erro ao abrir o link do Spotify', err)
+    );
+  };
+
+  const handleCitacao = () => {
+    navigation.navigate('Citacao');
+  };
+
 
   return (
     <View style={styles.container}>
@@ -38,7 +50,7 @@ const HomeScreen = () => {
           <Text style={styles.sectionText}>Respirar</Text>
         </TouchableOpacity>
         
-        <TouchableOpacity style={styles.sectionButton}>
+        <TouchableOpacity style={styles.sectionButton} onPress={openSpotifyPlaylist}>
           <Image 
             source={require('../../assets/sono.png')} // Substitua pelo link da imagem de "Melodias de sono"
             style={styles.sectionImage}
@@ -46,7 +58,7 @@ const HomeScreen = () => {
           <Text style={styles.sectionText}>Melodias de sono</Text>
         </TouchableOpacity>
         
-        <TouchableOpacity style={styles.sectionButton}>
+        <TouchableOpacity style={styles.sectionButton} onPress={handleCitacao}>
           <Image 
             source={require('../../assets/Citacao.png')} // Substitua pelo link da imagem de "Citações"
             style={styles.sectionImage}
