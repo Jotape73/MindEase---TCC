@@ -48,6 +48,10 @@ const L2 = () => {
         navigation.navigate('HomeScreen');
       };
 
+      const handleP = () => {
+        navigation.navigate('MeuPerfil');
+      };
+
   return (
     <View style={styles.container}>
       <ScrollView contentContainerStyle={styles.scrollContainer}>
@@ -85,7 +89,7 @@ const L2 = () => {
           <Text style={styles.navText}>Home</Text>
         </TouchableOpacity>
         
-        <TouchableOpacity style={styles.navButton}>
+        <TouchableOpacity style={styles.navButton} onPress={handleP}>
           <Icon name="user" size={24} color="#9e83f5" />
           <Text style={styles.navText}>Profile</Text>
         </TouchableOpacity>

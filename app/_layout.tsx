@@ -24,6 +24,7 @@ import RespirarT from "./pages/RespirarT";
 import Respirar from "./pages/Respirar";
 import L3 from "./pages/L3";
 import Citacao from "./pages/Citacao"
+import MeuPerfil from "./pages/MeuPerfil"
 
 export default function RootLayout() {
   const [loaded] = useFonts({
@@ -224,6 +225,15 @@ export default function RootLayout() {
         <Stack.Screen 
           name="Citacao" 
           component={Citacao}
+          options={{
+            headerShown: false,
+            statusBarBackgroundColor: "#f5f5f5",
+            statusBarStyle: "dark",
+          }}
+        />
+        <Stack.Screen 
+          name="MeuPerfil" 
+          component={MeuPerfil}
           options={{
             headerShown: false,
             statusBarBackgroundColor: "#f5f5f5",
