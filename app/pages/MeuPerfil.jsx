@@ -60,13 +60,13 @@ const getData = async () => {
       <View style={styles.card2}>
         <View style={styles.profileSection}>
           <Image source={require('../../assets/h.png')} style={styles.profileIcon} />
-          <Text style={styles.name}>Heloísa</Text>
+          <Text style={styles.name}>João Pedro</Text>
         </View>
         </View>
 
         <View style={styles.infoSection}>
           <View style={styles.card}>
-            <Text style={styles.infoText}>Email: helostella.1108@gmail.com </Text>
+            <Text style={styles.infoText}>Email: joao@gmail.com </Text>
           </View>
 
           <View style={styles.card}>
